@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* @theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+} */
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Vazir FD';
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+@keyframes imganim {
+  0%{
+    transform: translate(5px,5px);
+  }
+  50%{
+    transform: translate(0px,0px);
+  }
+  100%{
+    transform: translate(5px,5px);
+  }
+}
+.img{
+  animation: imganim 5s ease-in-out infinite;  
+}
+
+
+@keyframes imganim2 {
+  0%{
+    transform: translate(-5px,-5px);
+  }
+  50%{
+    transform: translate(0px,0px);
+  }
+  100%{
+    transform: translate(-5px,-5px);
+  }
+}
+.img2{
+  animation: imganim2 7s ease-in-out infinite;  
+}
+
+.imgContainer {
+  right: -60px;
+}
+@keyframes FoodSpin {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.spinImg {
+  animation: FoodSpin 30s infinite linear;
+}
+
+.chooseBrand {
+  overflow-x: auto;
+  scrollbar-color: transparent transparent;
+  user-select: none;
+}
+.chooseBrand::-webkit-scrollbar {
+  height: 1px;
+  background-color: transparent;
+}
+
+.border-b-1 {
+  border-bottom-width: 1px;
+}
+.border-1{
+  border-width: 1.5px;
+}
+.text-10 {
+  font-size: 10px;
+}
+.shopNum {
+  left: 18px;
+  top: 15px;
+}
+
+#header {
+  background-image: url(../image/head-bg-3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#editProfile {
+  background-image: url(../image/editp-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.custom-rt {
+  right: -3px;
+  top: 0px;
+}
+
+#headernewbg {
+  background-image: url(../image/new-header-image.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.border-15{
+  border-width: 1.5px;
+}
+.text-2xs {
+  font-size: xx-small;
+}
