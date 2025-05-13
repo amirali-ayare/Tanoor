@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { StoreProvider } from '@/redux/StoreProvider'
 import UserBox from '@/app/profile/components/UserBox'
 import Notification from './notification'
+import { IUser } from '@/redux/UserProfileData'
 
 export interface INotif {
     code: string,
@@ -17,12 +18,12 @@ export interface INotif {
 }
 
 function NotifContainer() {
-    const userData = useSelector((state: any) => state.user)
-    const offerCodes = useSelector((state: any) => state.offerCodes)
-    const [newOfferCodes, setNewOfferCodes] = useState([])
+    const userData = useSelector((state: {user: IUser}) => state.user)
+    const offerCodes = useSelector((state: {offerCodes: INotif[]}) => state.offerCodes)
+    const [newOfferCodes, setNewOfferCodes] = useState<INotif[]>([])
 
     useEffect(() => {
-        const newOfferCode = offerCodes.filter((item: any) => (item.score <= userData.score) && (item.used === false))
+        const newOfferCode = offerCodes.filter((item: INotif) => (item.score <= userData.score) && (item.used === false))
         setNewOfferCodes(newOfferCode)
     }, [])
 

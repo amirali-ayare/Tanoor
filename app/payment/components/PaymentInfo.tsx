@@ -16,7 +16,6 @@ function PaymentInfo() {
     const selectedFoods = useSelector((state: { shopCart: IFoodData[] }) => state.shopCart)
     const userRedux = useSelector((state: {user: IUser}) => state.user)
     const OfferCodes = useSelector((state: {offerCodes: INotif[]}) => state.offerCodes)
-    // const reservedData = useSelector((state: any) => state.reserved)
     const AddressInput = useRef<HTMLTextAreaElement | null>(null);
     const router = useRouter()
     const [inputVal, setInputVal] = useState('')
@@ -44,7 +43,7 @@ function PaymentInfo() {
 
     const ConfirmOfferCode = () => {
         setIsCodeEntered(true);
-        const CheckCode = availableCodes.find((item: any) => item.code === inputVal)
+        const CheckCode = availableCodes.find((item: INotif) => item.code === inputVal)
         if (CheckCode) {
             if (CheckCode.minimum <= totalAmount) {
                 setOffer(true)

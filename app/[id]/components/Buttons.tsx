@@ -17,7 +17,7 @@ function Buttons({ item, id }: IChoosenFood) {
     const Dispatch = useDispatch();
 
     const [isInCart, setIsInCart] = useState(false)
-    const food = selectedFoods.find((item: any) => item.id === id);
+    const food = selectedFoods.find((item: IFoodData) => item.id === id);
     
 
     const CheckFoods = () => {
