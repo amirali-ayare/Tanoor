@@ -1,10 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
-import { IFoodData } from '@/components/TraditionalFoods';
-import Suggested from './components/Suggested';
-import { StoreProvider } from '@/redux/StoreProvider';
-import Buttons from './components/Buttons';
+import React from 'react'
 import SuggContainer from './components/SuggContainer';
 import ProductPage from './components/ProductPage';
 
