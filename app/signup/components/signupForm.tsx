@@ -1,6 +1,6 @@
 import { signUp, uploadName, uploadPassword, uploadPhoneNumber } from '@/redux/UserProfileData';
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {useForm} from "react-hook-form"
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
@@ -20,7 +20,6 @@ function SignupForm() {
         password: yup.string().min(4, 'رمز حداقل باید 4 کاراکتر باشد').required('یک رمز برای حساب خود تعیین کنید')
     })
 
-    const userRedux = useSelector((state: any) => state.user)
     const Dispatch = useDispatch();
 
     const router = useRouter();
@@ -28,7 +27,7 @@ function SignupForm() {
         router.push('/')
     }
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
-    const onFormSubmit = (data: any) => {
+    const onFormSubmit = () => {
         Dispatch(signUp())
         Dispatch(uploadName(name))
         Dispatch(uploadPhoneNumber(phoneNumber))

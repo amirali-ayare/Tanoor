@@ -1,10 +1,6 @@
 "use client"
 import React from 'react'
-import food1 from '../image/t-f-1.jpg'
-import foode from '../public/image/t-f-6.jpg'
-import Image from 'next/image'
 import 'keen-slider/keen-slider.min.css'
-import { useKeenSlider } from 'keen-slider/react'
 import { IFoodData } from './TraditionalFoods'
 
 function FoodCard({ image, name, price ,ingredients}: IFoodData) {
@@ -15,7 +11,8 @@ function FoodCard({ image, name, price ,ingredients}: IFoodData) {
                 <img
                     // src={image}
                     // http://127.0.0.1:8000/media/images/t-f-3.jpg
-                    src={`http://127.0.0.1:8000${image.image}`}
+                    // src={`http://127.0.0.1:8000${image.image}`}
+                    src={`https://tanoor.liara.run${image.image}`}
                     alt="چلو کباب وزیری"
                     className="w-25 h-25 md:w-45 lg:w-45 xl:w-45 md:h-45 lg:h-45 xl:h-45 object-cover relative -top-15"
                 />

@@ -1,22 +1,12 @@
 "use client"
+import { IUser } from '@/redux/UserProfileData'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 
 function NavbarShop() {
 
-    const selectedFoods = useSelector((state: any) => state.shopCart)
-    const totalCount = selectedFoods.reduce((total: number, item: any) => {
-        return total + item.quantity;
-    }, 0);
-
-    const userRedux = useSelector((state: any) => state.user)
-    const offerCodes = useSelector((state: any) => state.offerCodes)
-    const [checkCodeExist, setCheckCodeExist] = useState([])
-    useEffect(()=>{
-        const CodeExist = offerCodes.filter((item: any) => (item.score <= userRedux.score) && (item.used === false))
-        setCheckCodeExist(CodeExist)
-    },[])
+    const userRedux = useSelector((state: {user: IUser}) => state.user)
 
 
     return (

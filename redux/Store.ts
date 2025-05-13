@@ -12,3 +12,5 @@ export default configureStore({
         reserved: ReservedData.reducer
     }
 })
+
+// export type RootState = ReturnType<typeof store.getState>;

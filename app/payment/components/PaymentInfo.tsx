@@ -1,38 +1,40 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { increaseScore, pay, uploadAddress } from '@/redux/UserProfileData';
+import { increaseScore, IUser, pay, uploadAddress } from '@/redux/UserProfileData';
 import { codeIsUsed } from '@/redux/OfferCodes';
 import { useRouter } from 'next/navigation';
 import { getReservedData } from '@/redux/ReservedData';
 import { clearAll } from '@/redux/CartSlice';
 import Link from 'next/link';
+import { IFoodData } from '@/components/TraditionalFoods';
+import { INotif } from '@/app/notification/components/notifContainer';
 
 
 function PaymentInfo() {
 
-    const selectedFoods = useSelector((state: any) => state.shopCart)
-    const userRedux = useSelector((state: any) => state.user)
-    const OfferCodes = useSelector((state: any) => state.offerCodes)
-    const reservedData = useSelector((state: any) => state.reserved)
+    const selectedFoods = useSelector((state: { shopCart: IFoodData[] }) => state.shopCart)
+    const userRedux = useSelector((state: {user: IUser}) => state.user)
+    const OfferCodes = useSelector((state: {offerCodes: INotif[]}) => state.offerCodes)
+    // const reservedData = useSelector((state: any) => state.reserved)
     const AddressInput = useRef<HTMLTextAreaElement | null>(null);
     const router = useRouter()
     const [inputVal, setInputVal] = useState('')
     const [totalAmount, setTotalAmount] = useState<number>(0)
     const [offer, setOffer] = useState(false)
     const [isCodeEntered, setIsCodeEntered] = useState(false);
-    const [availableCodes, setAvailableCodes] = useState<any>([])
+    const [availableCodes, setAvailableCodes] = useState<INotif[]>([])
     const [addressInputValue, setAddressInputValue] = useState('')
     const [showError, setShowError] = useState(false)
     const Dispatch = useDispatch();
 
     useEffect(() => {
-        const availableOfferCodes = OfferCodes.filter((item: any) => item.score <= userRedux.score)
-        const notUsedCodes = availableOfferCodes.filter((item: any) => item.used === false)
+        const availableOfferCodes = OfferCodes.filter((item: INotif) => item.score <= userRedux.score)
+        const notUsedCodes = availableOfferCodes.filter((item: INotif) => item.used === false)
         setAvailableCodes(notUsedCodes)
     }, [])
 
-    const calculate = selectedFoods.reduce((total: number, item: any) => {
+    const calculate = selectedFoods.reduce((total: number, item: IFoodData) => {
         return total + (item.quantity * item.price);
     }, 0);
 

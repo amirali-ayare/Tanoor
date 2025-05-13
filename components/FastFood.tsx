@@ -1,9 +1,7 @@
 "use client"
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import pizza from '../image/pizza.webp'
 import 'keen-slider/keen-slider.min.css'
-import { useKeenSlider } from 'keen-slider/react'
 import FoodCard from './FoodCard'
 import { IFoodData } from './TraditionalFoods'
 import Link from 'next/link'
@@ -17,10 +15,11 @@ function FastFood() {
 
     useEffect(() => {
         const getFoodsData = async () => {
-            const res = await fetch("http://127.0.0.1:8000/api/foods/");
+            const res = await fetch("https://tanoor.liara.run/api/foods/");
+            // const res = await fetch("http://127.0.0.1:8000/api/foods/");
             // const res = await fetch("http://localhost:3010/foods");
             const data = await res.json();
-            const filtered = data.filter((item: any) => item.type === 'fastfood')
+            const filtered = data.filter((item: IFoodData) => item.type === 'fastfood')
             setFastFoods(filtered)
             const cutted = filtered.slice(0,4)
             setMobileFF(cutted)

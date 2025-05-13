@@ -2,7 +2,6 @@ import React from 'react'
 import logo from '../image/bold-red-logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
-import Creator from './Creator'
 
 function Footer() {
 

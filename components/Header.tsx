@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
 import name from '../image/headerlogo.png'
-import food from '../image/foods.png'
 
 
 function Header() {

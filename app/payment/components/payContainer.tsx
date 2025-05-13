@@ -1,15 +1,15 @@
 'use client'
-import { StoreProvider } from '@/redux/StoreProvider'
 import React from 'react'
 import PaymentFoods from './paymentFoods'
 import PaymentInfo from './PaymentInfo'
 import { useSelector } from 'react-redux'
 import Image from 'next/image'
 import noFood from '@/image/basketEmpty.png'
+import { IFoodData } from '@/components/TraditionalFoods'
 
 function PayContainer() {
 
-    const selectedFoods = useSelector((state: any) => state.shopCart)
+    const selectedFoods = useSelector((state: { shopCart: IFoodData[] }) => state.shopCart)
 
     return (
         <>

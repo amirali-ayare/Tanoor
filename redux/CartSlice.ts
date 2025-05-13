@@ -1,8 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export interface IFoodData {
+    id: string,
+    name: string,
+    price: number,
+    stringPrice: string,
+    quantity: number,
+    ingredients: string,
+    image: any, // string
+    rating: string,
+    comments: [],
+    type: string
+}
+
 export const CartSlice = createSlice({
     name: 'cart',
-    initialState: [],
+    initialState: [] as IFoodData[],
 
     reducers: {
         addToCart: (state: any, action) => {

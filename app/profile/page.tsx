@@ -1,9 +1,5 @@
-import Image from 'next/image'
 import React from 'react'
-import Profile from '@/image/profile_image2.webp'
-import Score from '@/image/reward.png'
 import { StoreProvider } from '@/redux/StoreProvider'
-import UserProfileName from './components/UserProfileName'
 import UserBox from './components/UserBox'
 
 function page() {

@@ -1,9 +1,8 @@
 "use client"
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 import success from '@/image/successimage.webp'
-import { useSelector } from 'react-redux';
 
 function SuccessContainer() {
     const router = useRouter();

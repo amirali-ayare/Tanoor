@@ -1,3 +1,4 @@
+import { INotif } from "@/app/notification/components/notifContainer";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const Offer_Codes = createSlice({
@@ -53,7 +54,7 @@ export const Offer_Codes = createSlice({
             used: false,
             score: 0
         }
-    ],
+    ] as INotif[],
 
     reducers: {
         codeIsUsed: (state:any , action) => {

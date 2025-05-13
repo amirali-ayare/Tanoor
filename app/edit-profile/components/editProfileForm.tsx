@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from "react-hook-form"
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { uploadAddress, uploadName } from '@/redux/UserProfileData';
+import { IUser, uploadAddress, uploadName } from '@/redux/UserProfileData';
 
 
 function EditProfileForm() {
 
-    const user = useSelector((state: any) => state.user)
+    const user = useSelector((state: {user: IUser}) => state.user)
 
     const [name, setName] = useState(user.name)
     const [address, setAddress] = useState(user.address)

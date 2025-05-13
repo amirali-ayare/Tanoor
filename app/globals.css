@@ -86,19 +86,6 @@ body {
   top: 15px;
 }
 
-#header {
-  background-image: url(../image/head-bg-3.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-#editProfile {
-  background-image: url(../image/editp-bg.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .custom-rt {
   right: -3px;
   top: 0px;

@@ -1,5 +1,7 @@
 "use client"
+import { IFoodData } from '@/components/TraditionalFoods';
 import { addToCart, decrease, deleteFood, increase } from '@/redux/CartSlice';
+// import { RootState } from '@/redux/Store';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,7 +12,8 @@ interface IChoosenFood {
 
 function Buttons({ item, id }: IChoosenFood) {
 
-    const selectedFoods = useSelector((state: any) => state.shopCart)
+    const selectedFoods = useSelector((state: { shopCart: IFoodData[] }) => state.shopCart)
+    // const selectedFoods = useSelector((state: any) => state.shopCart)
     const Dispatch = useDispatch();
 
     const [isInCart, setIsInCart] = useState(false)
@@ -45,6 +48,7 @@ function Buttons({ item, id }: IChoosenFood) {
                     <button onClick={() => Dispatch(increase(id))} className='flex items-center p-2 cursor-pointer text-lg'><i className='bx bx-plus'></i></button>
                     <span className='font-light text-xl'>{food?.quantity}</span>
                     {
+                        food &&
                         food?.quantity > 1 ? <button onClick={() => Dispatch(decrease(id))} className='flex items-center p-2 pl-0 cursor-pointer text-lg'><i className='bx bx-minus'></i></button> : ''
                     }
                     <button onClick={() => Dispatch(deleteFood(id))} className='flex items-center p-2 text-xl cursor-pointer text-red-700'><i className='bx bx-trash' ></i></button>

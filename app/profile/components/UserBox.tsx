@@ -6,11 +6,12 @@ import score from '@/image/new-score.png'
 import { useSelector } from 'react-redux'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { IUser } from '@/redux/UserProfileData'
 
 
 function UserBox() {
 
-    const user = useSelector((state: any) => state.user)
+    const user = useSelector((state: {user: IUser}) => state.user)
     const columnData = [
         {
             icon: <i className='bx bx-edit text-2xl'></i>,

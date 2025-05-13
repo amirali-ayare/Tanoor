@@ -5,8 +5,7 @@ import Profile from '@/image/profile_image2.webp'
 import Score from '@/image/reward.png'
 import { useSelector } from 'react-redux'
 import Link from 'next/link'
-import UserBox from './UserBox'
-import { StoreProvider } from '@/redux/StoreProvider'
+import { IUser } from '@/redux/UserProfileData'
 
 function UserProfileName() {
 
@@ -15,7 +14,7 @@ function UserProfileName() {
 
 
 
-    const userRedux = useSelector((state: any) => state.user)
+    const userRedux = useSelector((state: {user: IUser}) => state.user)
     const rightColumnData = [
         {
             icon: <i className='bx bx-edit text-2xl'></i>,

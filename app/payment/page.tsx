@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 import { StoreProvider } from '@/redux/StoreProvider'
 import PayContainer from './components/payContainer'

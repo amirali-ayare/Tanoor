@@ -14,10 +14,11 @@ function Dessert() {
 
     useEffect(() => {
         const getFoodsData = async () => {
-            const res = await fetch("http://127.0.0.1:8000/api/foods/");
+            const res = await fetch("https://tanoor.liara.run/api/foods/");
+            // const res = await fetch("http://127.0.0.1:8000/api/foods/");
             // const res = await fetch("http://localhost:3010/foods");
             const data = await res.json();
-            const filtered = data.filter((item: any) => item.type === 'dessert')
+            const filtered = data.filter((item: IFoodData) => item.type === 'dessert')
             setDesserts(filtered)
             const cutted = filtered.slice(0,4)
             setMobileD(cutted)

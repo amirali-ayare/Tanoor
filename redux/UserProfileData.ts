@@ -1,5 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export interface IUser {
+    name: string,
+    phoneNumber: string,
+    password: string,
+    address: string,
+    score: number,
+    transactions: number,
+    signed: boolean
+}
+
 export const UserProfileData = createSlice({
     name: 'userData',
     initialState: {
@@ -10,7 +20,7 @@ export const UserProfileData = createSlice({
         score: 0,
         transactions: 0,
         signed: false
-    },
+    } as IUser,
 
     reducers: {
         signUp: (state: any) => {

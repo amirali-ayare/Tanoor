@@ -1,12 +1,17 @@
 "use client"
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import Ash from '../image/Ash.png'
 import 'keen-slider/keen-slider.min.css'
-import { useKeenSlider } from 'keen-slider/react'
 import FoodCard from './FoodCard'
 import Link from 'next/link'
 import traditionalFood from '../image/persianfoods.png'
+
+export interface Iimage{
+    created_at: string,
+    id: number,
+    image: string,
+    title: string
+}
 
 export interface IFoodData {
     id: string,
@@ -15,7 +20,7 @@ export interface IFoodData {
     stringPrice: string,
     quantity: number,
     ingredients: string,
-    image: any, // string
+    image: Iimage, // string
     rating: string,
     comments: [],
     type: string
@@ -29,9 +34,10 @@ function TraditionalFoods() {
     useEffect(() => {
         const getFoodsData = async () => {
             // const res = await fetch("http://localhost:3010/foods");
-            const res = await fetch("http://127.0.0.1:8000/api/foods/");
+            // const res = await fetch("http://127.0.0.1:8000/api/foods/");
+            const res = await fetch("https://tanoor.liara.run/api/foods/");
             const data = await res.json();
-            const filtered = data.filter((item: any) => item.type === 'iranian')
+            const filtered = data.filter((item: IFoodData) => item.type === 'iranian')
             setTraditionalFoods(filtered)
             const cutted = filtered.slice(0,4)
             setMobileTF(cutted)
