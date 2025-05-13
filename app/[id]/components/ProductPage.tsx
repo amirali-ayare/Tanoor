@@ -13,11 +13,9 @@ interface IFoodProps {
 function ProductPage({ params }: IFoodProps) {
 
     const [ChoosenFood, setChoosenFood] = useState<IFoodData | null>(null)
-    const [ParamsId, setParamsId] = useState('')
     useEffect(() => {
         const getChoosenFood = async () => {
             const { id } = await params;
-            setParamsId(id)
             // const result = await fetch(`http://127.0.0.1:8000/api/foods/${id}`)
             const result = await fetch(`https://tanoor.liara.run/api/foods/${id}`)
             // const result = await fetch(`http://localhost:3010/foods/${id}`)
